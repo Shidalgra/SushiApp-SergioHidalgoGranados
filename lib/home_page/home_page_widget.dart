@@ -1,11 +1,9 @@
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +23,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 1000.ms,
+          duration: 2000.ms,
           begin: Offset(300, 0),
           end: Offset(0, 0),
         ),
@@ -149,34 +147,47 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Align(
-                        alignment: AlignmentDirectional(0, 0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            context.pushNamed('rollsSushi');
-                          },
-                          text: 'Get Started',
-                          icon: FaIcon(
-                            FontAwesomeIcons.arrowRight,
-                          ),
-                          options: FFButtonOptions(
-                            width: 200,
-                            height: 40,
+                      InkWell(
+                        onTap: () async {
+                          context.pushNamed('rollsSushi');
+                        },
+                        child: Container(
+                          width: 180,
+                          height: 40,
+                          decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).alternate,
-                            textStyle:
-                                FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Playfair Display SC',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBtnText,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(100),
+                            borderRadius: BorderRadius.circular(25),
                           ),
-                          showLoadingIndicator: false,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                                child: Text(
+                                  'Get Started',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Playfair Display SC',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
+                                        fontSize: 18,
+                                      ),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                                child: Icon(
+                                  Icons.arrow_forward,
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBtnText,
+                                  size: 24,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
