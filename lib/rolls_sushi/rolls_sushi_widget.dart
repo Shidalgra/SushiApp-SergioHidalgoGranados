@@ -2,6 +2,7 @@ import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -201,7 +202,7 @@ class _RollsSushiWidgetState extends State<RollsSushiWidget>
                                                         fontFamily: 'Open Sans',
                                                         fontSize: 20,
                                                         fontWeight:
-                                                            FontWeight.w300,
+                                                            FontWeight.normal,
                                                       ),
                                                 ),
                                               ],
@@ -307,6 +308,12 @@ class _RollsSushiWidgetState extends State<RollsSushiWidget>
                                                   10, 0, 0, 0),
                                           child: TextFormField(
                                             controller: textController,
+                                            onChanged: (_) =>
+                                                EasyDebounce.debounce(
+                                              'textController',
+                                              Duration(milliseconds: 2000),
+                                              () => setState(() {}),
+                                            ),
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               labelStyle:
@@ -318,6 +325,14 @@ class _RollsSushiWidgetState extends State<RollsSushiWidget>
                                                             Color(0x4D000000),
                                                       ),
                                               hintText: 'Search here',
+                                              hintStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Open Sans',
+                                                        color:
+                                                            Color(0x4D000000),
+                                                      ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -371,13 +386,29 @@ class _RollsSushiWidgetState extends State<RollsSushiWidget>
                                               ),
                                               prefixIcon: Icon(
                                                 Icons.search,
+                                                color: Color(0xFF3E3E3E),
                                               ),
+                                              suffixIcon: textController!
+                                                      .text.isNotEmpty
+                                                  ? InkWell(
+                                                      onTap: () async {
+                                                        textController?.clear();
+                                                        setState(() {});
+                                                      },
+                                                      child: Icon(
+                                                        Icons.clear,
+                                                        color:
+                                                            Color(0xFF757575),
+                                                        size: 15,
+                                                      ),
+                                                    )
+                                                  : null,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Open Sans',
-                                                  color: Color(0x4D000000),
+                                                  color: Colors.black,
                                                 ),
                                           ),
                                         ),

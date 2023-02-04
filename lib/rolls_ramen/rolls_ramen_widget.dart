@@ -2,6 +2,7 @@ import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -201,7 +202,7 @@ class _RollsRamenWidgetState extends State<RollsRamenWidget>
                                                         fontFamily: 'Open Sans',
                                                         fontSize: 20,
                                                         fontWeight:
-                                                            FontWeight.w300,
+                                                            FontWeight.normal,
                                                       ),
                                                 ),
                                               ],
@@ -307,6 +308,12 @@ class _RollsRamenWidgetState extends State<RollsRamenWidget>
                                                   10, 0, 0, 0),
                                           child: TextFormField(
                                             controller: textController,
+                                            onChanged: (_) =>
+                                                EasyDebounce.debounce(
+                                              'textController',
+                                              Duration(milliseconds: 2000),
+                                              () => setState(() {}),
+                                            ),
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               labelStyle:
@@ -318,6 +325,14 @@ class _RollsRamenWidgetState extends State<RollsRamenWidget>
                                                             Color(0x4D000000),
                                                       ),
                                               hintText: 'Search here',
+                                              hintStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Open Sans',
+                                                        color:
+                                                            Color(0x4D000000),
+                                                      ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -371,7 +386,23 @@ class _RollsRamenWidgetState extends State<RollsRamenWidget>
                                               ),
                                               prefixIcon: Icon(
                                                 Icons.search,
+                                                color: Color(0xFF3E3E3E),
                                               ),
+                                              suffixIcon: textController!
+                                                      .text.isNotEmpty
+                                                  ? InkWell(
+                                                      onTap: () async {
+                                                        textController?.clear();
+                                                        setState(() {});
+                                                      },
+                                                      child: Icon(
+                                                        Icons.clear,
+                                                        color:
+                                                            Color(0xFF757575),
+                                                        size: 15,
+                                                      ),
+                                                    )
+                                                  : null,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
@@ -481,91 +512,6 @@ class _RollsRamenWidgetState extends State<RollsRamenWidget>
                                         child: InkWell(
                                           onTap: () async {
                                             context.pushNamed(
-                                              'rollsSushi',
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType
-                                                          .rightToLeft,
-                                                  duration: Duration(
-                                                      milliseconds: 600),
-                                                ),
-                                              },
-                                            );
-                                          },
-                                          child: Container(
-                                            width: 150,
-                                            height: 50,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBtnText,
-                                              borderRadius:
-                                                  BorderRadius.circular(25),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  25, 5, 0, 0),
-                                                      child: Image.asset(
-                                                        'assets/images/Sushi.png',
-                                                        width: 35,
-                                                        height: 35,
-                                                        fit: BoxFit.cover,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10, 15, 0, 0),
-                                                      child: Text(
-                                                        'Sushi',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Open Sans',
-                                                                  color: Color(
-                                                                      0x4D000000),
-                                                                  fontSize: 16,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w800,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 10, 0),
-                                        child: InkWell(
-                                          onTap: () async {
-                                            context.pushNamed(
                                               'rollsTemaki',
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
@@ -622,6 +568,91 @@ class _RollsRamenWidgetState extends State<RollsRamenWidget>
                                                                   10, 15, 0, 0),
                                                       child: Text(
                                                         'Temaki',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Open Sans',
+                                                                  color: Color(
+                                                                      0x4D000000),
+                                                                  fontSize: 16,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w800,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10, 0, 10, 0),
+                                        child: InkWell(
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              'rollsSushi',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType
+                                                          .rightToLeft,
+                                                  duration: Duration(
+                                                      milliseconds: 600),
+                                                ),
+                                              },
+                                            );
+                                          },
+                                          child: Container(
+                                            width: 150,
+                                            height: 50,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBtnText,
+                                              borderRadius:
+                                                  BorderRadius.circular(25),
+                                            ),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  25, 5, 0, 0),
+                                                      child: Image.asset(
+                                                        'assets/images/Sushi.png',
+                                                        width: 35,
+                                                        height: 35,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10, 15, 0, 0),
+                                                      child: Text(
+                                                        'Sushi',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
