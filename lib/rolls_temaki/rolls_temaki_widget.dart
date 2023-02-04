@@ -1,5 +1,6 @@
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_toggle_icon.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class RollsTemakiWidget extends StatefulWidget {
   const RollsTemakiWidget({Key? key}) : super(key: key);
@@ -82,6 +84,8 @@ class _RollsTemakiWidgetState extends State<RollsTemakiWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBtnText,
@@ -408,7 +412,8 @@ class _RollsTemakiWidgetState extends State<RollsTemakiWidget>
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Open Sans',
-                                                  color: Color(0x4D000000),
+                                                  color: Colors.black,
+                                                  fontSize: 16,
                                                 ),
                                           ),
                                         ),
@@ -741,11 +746,28 @@ class _RollsTemakiWidgetState extends State<RollsTemakiWidget>
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(
-                                                                10, 0, 0, 60),
-                                                    child: Icon(
-                                                      Icons.favorite_border,
-                                                      color: Colors.black,
-                                                      size: 24,
+                                                                0, 0, 0, 60),
+                                                    child: ToggleIcon(
+                                                      onPressed: () async {
+                                                        setState(() =>
+                                                            FFAppState()
+                                                                    .Favorite =
+                                                                !FFAppState()
+                                                                    .Favorite);
+                                                      },
+                                                      value:
+                                                          FFAppState().Favorite,
+                                                      onIcon: Icon(
+                                                        Icons.favorite,
+                                                        color:
+                                                            Color(0xFFE21818),
+                                                        size: 25,
+                                                      ),
+                                                      offIcon: Icon(
+                                                        Icons.favorite_border,
+                                                        color: Colors.black,
+                                                        size: 25,
+                                                      ),
                                                     ),
                                                   ),
                                                 ],
@@ -881,11 +903,28 @@ class _RollsTemakiWidgetState extends State<RollsTemakiWidget>
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(
-                                                                10, 0, 0, 60),
-                                                    child: Icon(
-                                                      Icons.favorite_border,
-                                                      color: Colors.black,
-                                                      size: 24,
+                                                                0, 0, 0, 60),
+                                                    child: ToggleIcon(
+                                                      onPressed: () async {
+                                                        setState(() =>
+                                                            FFAppState()
+                                                                    .Favorite =
+                                                                !FFAppState()
+                                                                    .Favorite);
+                                                      },
+                                                      value:
+                                                          FFAppState().Favorite,
+                                                      onIcon: Icon(
+                                                        Icons.favorite,
+                                                        color:
+                                                            Color(0xFFE21818),
+                                                        size: 25,
+                                                      ),
+                                                      offIcon: Icon(
+                                                        Icons.favorite_border,
+                                                        color: Colors.black,
+                                                        size: 25,
+                                                      ),
                                                     ),
                                                   ),
                                                 ],
@@ -1021,11 +1060,28 @@ class _RollsTemakiWidgetState extends State<RollsTemakiWidget>
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(
-                                                                10, 0, 0, 60),
-                                                    child: Icon(
-                                                      Icons.favorite_border,
-                                                      color: Colors.black,
-                                                      size: 24,
+                                                                0, 0, 0, 60),
+                                                    child: ToggleIcon(
+                                                      onPressed: () async {
+                                                        setState(() =>
+                                                            FFAppState()
+                                                                    .Favorite =
+                                                                !FFAppState()
+                                                                    .Favorite);
+                                                      },
+                                                      value:
+                                                          FFAppState().Favorite,
+                                                      onIcon: Icon(
+                                                        Icons.favorite,
+                                                        color:
+                                                            Color(0xFFE21818),
+                                                        size: 25,
+                                                      ),
+                                                      offIcon: Icon(
+                                                        Icons.favorite_border,
+                                                        color: Colors.black,
+                                                        size: 25,
+                                                      ),
                                                     ),
                                                   ),
                                                 ],
@@ -1199,7 +1255,7 @@ class _RollsTemakiWidgetState extends State<RollsTemakiWidget>
                                             ],
                                           ),
                                           Container(
-                                            width: 200,
+                                            width: 170,
                                             height: 100,
                                             decoration: BoxDecoration(
                                               color:
@@ -1312,10 +1368,25 @@ class _RollsTemakiWidgetState extends State<RollsTemakiWidget>
                                           ),
                                         ],
                                       ),
-                                      Icon(
-                                        Icons.favorite_border,
-                                        color: Colors.black,
-                                        size: 24,
+                                      Expanded(
+                                        child: ToggleIcon(
+                                          onPressed: () async {
+                                            setState(() =>
+                                                FFAppState().Favorite =
+                                                    !FFAppState().Favorite);
+                                          },
+                                          value: FFAppState().Favorite,
+                                          onIcon: Icon(
+                                            Icons.favorite,
+                                            color: Color(0xFFE21818),
+                                            size: 25,
+                                          ),
+                                          offIcon: Icon(
+                                            Icons.favorite_border,
+                                            color: Colors.black,
+                                            size: 25,
+                                          ),
+                                        ),
                                       ),
                                     ],
                                   ),
