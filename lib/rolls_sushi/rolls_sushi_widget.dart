@@ -749,13 +749,11 @@ class _RollsSushiWidgetState extends State<RollsSushiWidget>
                                                     child: ToggleIcon(
                                                       onPressed: () async {
                                                         setState(() =>
-                                                            FFAppState()
-                                                                    .Favorite =
+                                                            FFAppState().F1 =
                                                                 !FFAppState()
-                                                                    .Favorite);
+                                                                    .F1);
                                                       },
-                                                      value:
-                                                          FFAppState().Favorite,
+                                                      value: FFAppState().F1,
                                                       onIcon: Icon(
                                                         Icons.favorite,
                                                         color:
@@ -906,13 +904,11 @@ class _RollsSushiWidgetState extends State<RollsSushiWidget>
                                                     child: ToggleIcon(
                                                       onPressed: () async {
                                                         setState(() =>
-                                                            FFAppState()
-                                                                    .Favorite =
+                                                            FFAppState().f2 =
                                                                 !FFAppState()
-                                                                    .Favorite);
+                                                                    .f2);
                                                       },
-                                                      value:
-                                                          FFAppState().Favorite,
+                                                      value: FFAppState().f2,
                                                       onIcon: Icon(
                                                         Icons.favorite,
                                                         color:
@@ -1063,13 +1059,11 @@ class _RollsSushiWidgetState extends State<RollsSushiWidget>
                                                     child: ToggleIcon(
                                                       onPressed: () async {
                                                         setState(() =>
-                                                            FFAppState()
-                                                                    .Favorite =
+                                                            FFAppState().f3 =
                                                                 !FFAppState()
-                                                                    .Favorite);
+                                                                    .f3);
                                                       },
-                                                      value:
-                                                          FFAppState().Favorite,
+                                                      value: FFAppState().f3,
                                                       onIcon: Icon(
                                                         Icons.favorite,
                                                         color:
@@ -1370,11 +1364,10 @@ class _RollsSushiWidgetState extends State<RollsSushiWidget>
                                       Expanded(
                                         child: ToggleIcon(
                                           onPressed: () async {
-                                            setState(() =>
-                                                FFAppState().Favorite =
-                                                    !FFAppState().Favorite);
+                                            setState(() => FFAppState().f4 =
+                                                !FFAppState().f4);
                                           },
-                                          value: FFAppState().Favorite,
+                                          value: FFAppState().f4,
                                           onIcon: Icon(
                                             Icons.favorite,
                                             color: Color(0xFFE21818),

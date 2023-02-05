@@ -62,14 +62,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => HomePageWidget(),
             ),
             FFRoute(
-              name: 'rollsSushi',
-              path: 'rollsSushi',
-              builder: (context, params) => RollsSushiWidget(),
-            ),
-            FFRoute(
               name: 'RollsDetails',
               path: 'rollsDetails',
               builder: (context, params) => RollsDetailsWidget(),
+            ),
+            FFRoute(
+              name: 'rollsSushi',
+              path: 'rollsSushi',
+              builder: (context, params) => RollsSushiWidget(),
             ),
             FFRoute(
               name: 'rollsRamen',

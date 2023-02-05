@@ -750,13 +750,11 @@ class _RollsRamenWidgetState extends State<RollsRamenWidget>
                                                     child: ToggleIcon(
                                                       onPressed: () async {
                                                         setState(() =>
-                                                            FFAppState()
-                                                                    .Favorite =
+                                                            FFAppState().f5 =
                                                                 !FFAppState()
-                                                                    .Favorite);
+                                                                    .f5);
                                                       },
-                                                      value:
-                                                          FFAppState().Favorite,
+                                                      value: FFAppState().f5,
                                                       onIcon: Icon(
                                                         Icons.favorite,
                                                         color:
@@ -907,13 +905,11 @@ class _RollsRamenWidgetState extends State<RollsRamenWidget>
                                                     child: ToggleIcon(
                                                       onPressed: () async {
                                                         setState(() =>
-                                                            FFAppState()
-                                                                    .Favorite =
+                                                            FFAppState().f6 =
                                                                 !FFAppState()
-                                                                    .Favorite);
+                                                                    .f6);
                                                       },
-                                                      value:
-                                                          FFAppState().Favorite,
+                                                      value: FFAppState().f6,
                                                       onIcon: Icon(
                                                         Icons.favorite,
                                                         color:
@@ -1064,13 +1060,11 @@ class _RollsRamenWidgetState extends State<RollsRamenWidget>
                                                     child: ToggleIcon(
                                                       onPressed: () async {
                                                         setState(() =>
-                                                            FFAppState()
-                                                                    .Favorite =
+                                                            FFAppState().f7 =
                                                                 !FFAppState()
-                                                                    .Favorite);
+                                                                    .f7);
                                                       },
-                                                      value:
-                                                          FFAppState().Favorite,
+                                                      value: FFAppState().f7,
                                                       onIcon: Icon(
                                                         Icons.favorite,
                                                         color:
@@ -1371,11 +1365,10 @@ class _RollsRamenWidgetState extends State<RollsRamenWidget>
                                       Expanded(
                                         child: ToggleIcon(
                                           onPressed: () async {
-                                            setState(() =>
-                                                FFAppState().Favorite =
-                                                    !FFAppState().Favorite);
+                                            setState(() => FFAppState().f8 =
+                                                !FFAppState().f8);
                                           },
-                                          value: FFAppState().Favorite,
+                                          value: FFAppState().f8,
                                           onIcon: Icon(
                                             Icons.favorite,
                                             color: Color(0xFFE21818),
